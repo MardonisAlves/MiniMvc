@@ -1,0 +1,22 @@
+{
+    "name": "mardonis/php-mvc-site-cms",
+    "description": "Mardonis <mardonisgp@gmail.com>",
+    
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Mardonis\\PhpMvcSiteCms\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mardonis Alves Bezerra",
+            "email": "mardonisgp@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "illuminate/database": "^8.64",
+        "twig/twig": "^3.0"
+    }
+}
