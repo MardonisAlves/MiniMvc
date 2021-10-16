@@ -32,13 +32,13 @@ class __TwigTemplate_b9be93bc4f7f50a87145bddb3211edc8149cc610c6ad515ffd3e2ced72e
     protected function doGetParent(array $context)
     {
         // line 1
-        return "layout.hrml";
+        return "layout.html";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("layout.hrml", "users/index.html", 1);
+        $this->parent = $this->loadTemplate("layout.html", "users/index.html", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
