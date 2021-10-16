@@ -63,6 +63,7 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
+            'PhpOption\\' => 10,
         ),
         'M' => 
         array (
@@ -75,8 +76,13 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
         ),
+        'G' => 
+        array (
+            'GrahamCampbell\\ResultType\\' => 26,
+        ),
         'D' => 
         array (
+            'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Inflector\\' => 19,
             'DeepCopy\\' => 9,
@@ -174,6 +180,10 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
         'Mardonis\\PhpMvcSiteCms\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -195,6 +205,14 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
         'Illuminate\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
+        ),
+        'GrahamCampbell\\ResultType\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
+        ),
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
