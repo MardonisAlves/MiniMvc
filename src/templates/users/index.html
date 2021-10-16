@@ -1,7 +1,9 @@
-<h1>Usuários</h1>
+{% extends "layout.html"%}
 
+{% block content %}
 <ul>
 {% for user in users %}
     <li>{{ user.name }}</li>
 {% endfor %}
 </ul>
+{% endblock %}
