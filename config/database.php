@@ -3,7 +3,6 @@
 use Illuminate\Database\Capsule\Manager;
 $env = parse_ini_file('../.env');
 
-
 $capsule = new Manager;
 
  $capsule->addConnection([
