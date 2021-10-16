@@ -10,6 +10,10 @@ class HomeController
     {
         $this->twig = $twig;
     }
+    public function home()
+    {
+        return "Home";
+    }
 
     public function hello($params)
     {

@@ -53,6 +53,10 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
         ),
+        'R' => 
+        array (
+            'Router\\' => 7,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
@@ -149,6 +153,10 @@ class ComposerStaticInit7ab96d73f6d7f9e389eb6e3c05879ba4
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Router\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/route',
         ),
         'Psr\\SimpleCache\\' => 
         array (

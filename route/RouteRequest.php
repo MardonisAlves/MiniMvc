@@ -1,8 +1,8 @@
 <?php
 
-namespace Mardonis\PhpMvcSiteCms;
+namespace Router;
 
-class Router
+class RouteRequest
 {
 
     private $routes = [];
