@@ -1,10 +1,11 @@
 <?php
 namespace App\Controllers;
 use App\Models\User;
+use App\Controllers\Controller;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
-   
+    
     public function home()
     {
         return $this->twig->render('home/index.html');
