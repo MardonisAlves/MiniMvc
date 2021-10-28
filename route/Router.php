@@ -1,27 +1,76 @@
 <?php
-$method = $_SERVER['REQUEST_METHOD'];
-$path = $_SERVER['PATH_INFO'] ?? '/';
 
+namespace Router;
+use Router\RouterEntity;
+class Router
+{
+    private $routes = [];
+    private $method;
+    private $path;
+    private $params;
 
-$router = new \Router\RouteRequest($method, $path);
-$router->get('/', 'App\Controllers\HomeController::home');
-$router->get('/ola-{nome}', 'App\Controllers\HomeController::hello');
-$router->get('/users', 'App\Controllers\HomeController::listUsers');
-$result = $router->handler();
+    public function __construct($method, $path)
+    {
+        $this->method = $method;
+        $this->path = $path;
+    }
 
-if (!$result) {
-    http_response_code(404);
-    echo 'Página não encontrada!';
-    die();
-}
+    public function get(string $route, $action)
+    {
+        return $this->add('GET', $route, $action); // adicionei o return
+    }
 
-$twig = require(__DIR__ . '/../config/renderView.php');
+    public function post(string $route, $action)
+    {
+        return $this->add('POST', $route, $action); // adicionei o return
+    }
 
-if ($result instanceof Closure) {
-    echo $result($router->getParams());
-} elseif (is_string($result)) {
-    $result = explode('::', $result);
-    $controller = new $result[0]($twig);
-    $action = $result[1];
-    echo $controller->$action($router->getParams());
+    public function add(string $method, string $route, $action)
+    {
+        $this->routes[$method][$route] = new RouterEntity($action); // usei nossa nova classe
+        return $this->routes[$method][$route]; // adicionei o return
+    }
+
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    public function handler()
+    {
+        if (empty($this->routes[$this->method])) {
+            return false;
+        }
+
+        if (isset($this->routes[$this->method][$this->path])) {
+            return $this->routes[$this->method][$this->path];
+        }
+
+        foreach ($this->routes[$this->method] as $route => $action) {
+            $result = $this->checkUrl($route, $this->path);
+            if ($result >= 1) {
+                return $action;
+            }
+        }
+
+        return false;
+    }
+
+    private function checkUrl(string $route, $path)
+    {
+        preg_match_all('/\{([^\}]*)\}/', $route, $variables);
+
+        $regex = str_replace('/', '\/', $route);
+
+        foreach ($variables[0] as $k => $variable) {
+            $replacement = '([a-zA-Z0-9\-\_\ ]+)';
+            $regex = str_replace($variable, $replacement, $regex);
+        }
+
+        $regex = preg_replace('/{([a-zA-Z]+)}/', '([a-zA-Z0-9+])', $regex);
+        $result = preg_match('/^' . $regex . '$/', $path, $params);
+        $this->params = $params;
+
+        return $result;
+    }
 }
